@@ -14,7 +14,7 @@ WITH raw_data AS (
 )
 
 SELECT 
-    order_id AS opportunity_id,
+    order_id,
     customer_id,
     order_status,
     order_purchase_timestamp,

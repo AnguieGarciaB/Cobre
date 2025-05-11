@@ -12,7 +12,7 @@ WITH raw_data AS (
 SELECT 
     mql_id AS lead_id,
     first_contact_date,
-    landing_page_id AS landing_page,
+    landing_page_id,
     origin AS lead_source
 FROM raw_data
 WHERE first_contact_date IS NOT NULL
