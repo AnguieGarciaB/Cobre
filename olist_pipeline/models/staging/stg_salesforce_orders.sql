@@ -23,4 +23,3 @@ SELECT
     order_delivered_customer_date,
     order_estimated_delivery_date
 FROM raw_data
-WHERE order_status = 'delivered'
