@@ -12,10 +12,18 @@ leads_status as (
         lead_source,
         -- MQL: todos los registros de hubspot
         1 as is_mql,
-        -- SQL: si tiene una fila en leads_closed
-        case when seller_id is not null then 1 else 0 end as is_sql,
+        
+        -- SQL: si landing_page_id termina en número SE ASUME QUE ES CONTACTADO (SQL)
+        case 
+            when right(landing_page_id, 1) between '0' and '9' then 1 
+            else 0 
+        end as is_sql,
+        
         -- Won: si tiene fecha de won_date
-        case when won_date is not null then 1 else 0 end as is_won
+        case 
+            when won_date is not null then 1 
+            else 0 
+        end as is_won
     from leads
 ),
 
@@ -26,12 +34,13 @@ conversion_rates as (
         count(*) as total_mqls,
         sum(is_sql) as total_sqls,
         sum(is_won) as total_wons,
-        round(sum(is_sql) * 1.0 / count(*), 2) as mql_to_sql_rate,
-        round(sum(is_won) * 1.0 / nullif(sum(is_sql), 0), 2) as sql_to_won_rate,
-        round(sum(is_won) * 1.0 / count(*), 2) as mql_to_won_rate
+        round(sum(is_sql) * 100 / count(*), 2) as mql_to_sql_rate,
+        round(sum(is_won) * 100 / nullif(sum(is_sql), 0), 2) as sql_to_won_rate,
+        round(sum(is_won) * 100 / count(*), 2) as mql_to_won_rate
     from leads_status
     group by lead_source
 )
 
 select *
 from conversion_rates
+order by mql_to_won_rate desc
