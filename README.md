@@ -1,3 +1,11 @@
+<div style="text-align: center;">
+  <img src="assets/image.png" alt="alt text" width="200">
+</div>
+
+### **Please check the summary report [here](https://github.com/AnguieGarciaB/Cobre/blob/main/SummaryReport.pdf)**
+
+---
+
 # Data Modeling & Integration: Conceptual Model and Simplified Pipeline
 
 ## Objective
@@ -102,7 +110,7 @@ Result:
 Calculate conversion rates across stages of the funnel (e.g., MQL → SQL → Won). Implement an attribution model (first-touch, logistic regression, or Markov chain) to assign credit to marketing channels. Evaluate which sources bring in the most valuable or fastest-converting leads.
 
 ## Funnel Analytics
-`mart_lead_funnel.sql`
+`mart_lead_funnel.sql` contains the data to build the funnel.
 
 
 ## Attribution Model
