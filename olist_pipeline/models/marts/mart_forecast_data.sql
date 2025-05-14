@@ -3,7 +3,8 @@
 with leads_data as (
     select
         date_trunc('week', first_contact_date) as week_start,
-        count(*) as leads_created
+        count(*) as leads_created,
+        sum(is_won) as wons_created
     from {{ ref('in_hubspot_leads_enriched') }}
     group by 1
 )

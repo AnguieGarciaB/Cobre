@@ -153,6 +153,35 @@ You can check the notebook for this project [here](https://github.com/AnguieGarc
 
 # Forecasting & Planning
 
+📌 **Justification based on the graph:**
+
+1. **Abrupt level shift (structural change)**  
+   The number of leads and conversions jumps suggesting a non-linear change in behavior.   
+   ➡️ Prophet handles these trend changes well with its automatic "changepoints" feature.
+
+2. **Non-linear trend and accelerated growth**  
+   The trend is not smooth or linear: it grows slowly at first, then spikes, and finally stabilizes.  
+   ➡️ Prophet allows for piecewise linear trends (segments of different slopes), which is perfect for this pattern.
+
+3. **Possible weekly seasonality**  
+   Although not obvious in the graph, there may be hidden weekly or monthly seasonal effects.  
+   ➡️ Prophet includes automatic seasonality (daily, weekly, yearly), and custom seasonality can be added if needed.
+
+4. **Outliers or atypical values**  
+   The last week shows a sharp drop, which could be an error or an atypical behavior.  
+   ➡️ Prophet is robust to outliers and prevents them from distorting the forecast.
+
+🔹 **Simple regression with trend**  
+   - Doesn't capture structural changes well.  
+   - Does not model seasonality automatically.  
+   - Relies on fixed linear relationships.
+
+   This model allows to capture information on other variables such as the source of the Lead. It is implemented to obtain insgihts.
+
+
+
+You can check the notebook for this project [here](https://github.com/AnguieGarciaB/Cobre/tree/business-case/notebooks/forecasting_prophet.ipynb).
+
 
 
 ---
@@ -252,4 +281,10 @@ Implement a forecasting model to predict future lead conversions or creation eve
 Explore both time-series models (such as Prophet or ARIMA) and regression-based models.
 Identify key trends and seasonal patterns in the data.
 Highlight potential risks in the forecast, considering uncertainty and variations in the data."""
+```
+
+*Forecasting & Planning*
+
+```python
+"Given the characteristics of the time series graph, which time series model should be used and why? Justify your answer based on the observed behavior."
 ```
