@@ -1,7 +1,7 @@
 {{ config(materialized='table') }}
 with lead_data as (
     select
-        lead_id,
+        mql_id,
         lead_source,
         lead_type,
         days_to_conversion

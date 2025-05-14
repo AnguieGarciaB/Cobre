@@ -8,7 +8,7 @@ with leads as (
 -- Calculamos el estado del lead
 leads_status as (
     select
-        lead_id,
+        mql_id,
         lead_source,
         -- MQL: todos los registros de hubspot
         1 as is_mql,
@@ -17,7 +17,7 @@ leads_status as (
         case 
             when right(landing_page_id, 1) between '0' and '9' then 1 
             else 0 
-        end as is_sql,
+        end as is_sql,  
         
         -- Won: si tiene fecha de won_date
         case 
